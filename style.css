@@ -197,10 +197,236 @@ body {
 }
 
 .video-container:fullscreen .cta-buttons-overlay button {
-  /* 💡 変数値を直接適用 (40px 160px) */
+  /* 💡 変数値を直接適用 (40px 160px) *//* ======================== */
+/* 💎 CSS 変数定義 (位置は %、サイズは vw/vh で連動) */
+/* ======================== */
+:root {
+  /* --- 全般 --- */
+  --z-index-overlay: 2147483647;
+  --video-aspect-ratio: 56.25%; /* 16:9 の場合: (9 / 16) * 100% = 56.25% */
+  
+  /* --- CTAボタン群 (通常表示時の相対サイズ) --- */
+  --cta-top-position: 20%;        /* 動画プレイヤー上端からの距離 */
+  --cta-left-position: 3.75%;        /* ★位置: 親要素に対する % (左端からの距離) */
+  --cta-gap: 0.01vh;               /* サイズ: vh で連動 (※非常に小さい値) */
+  --cta-bg-color: #007bff;
+  --cta-text-color: white;
+  --cta-opacity-enabled: 0.6;      /* 有効時の不透明度 */
+  --cta-opacity-disabled: 0.3;     /* 無効時の不透明度 */
+  --cta-padding-y: 1.0vh;          /* サイズ: vh で連動 */
+  --cta-padding-x: 12.0vw;         /* サイズ: vw で連動 */
+  --cta-min-width: 8vw;           
+  --cta-font-size: 3.0vh;          /* サイズ: vh で連動 */
+  --cta-border-radius: 5px;
+
+  /* --- 全画面ボタン (通常表示時の相対サイズ) --- */
+  --fs-top-position: 2%;          
+  --fs-right-position: 2%;        
+  --fs-bg-color: #ff9900;
+  --fs-padding-y: 0.7vh;          
+  --fs-padding-x: 1.5vw;          
+  --fs-font-size: 1.5vh;          
+  --fs-opacity-enabled: 1.0;
+  
+  /* 🚨 全画面時の代替サイズを定義（固定値/px）*/
+  --fs-cta-padding-y-fix: 150px;
+  --fs-cta-padding-x-fix: 1000px;
+  --fs-cta-font-size-fix: 60px;
+  --fs-cta-gap-fix: 3px;
+  --fs-cta-top-fix: 200px;         /* 新規追加: 全画面時の位置固定 (px) */
+  --fs-cta-left-fix: 100px;
+
+  --fs-fs-padding-y-fix: 10px;
+  --fs-fs-padding-x-fix: 20px;
+  --fs-fs-font-size-fix: 18px;
+}
+
+/* ======================== */
+/* 共通コンテナのスタイル */
+/* ======================== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* 動画が小さい問題を解決するため max-width を維持 */
+.video-container {
+  position: relative;
+  max-width: 800px; 
+  margin: 0 auto;
+  background-color: black;
+}
+
+/* ズレ解消のためのラッパー (アスペクト比制御) */
+.video-wrapper {
+  position: relative; 
+  width: 100%;
+  height: 0;
+  padding-bottom: var(--video-aspect-ratio); 
+}
+
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ======================== */
+/* 🚀 右上の全画面ボタンのスタイル */
+/* ======================== */
+.fullscreen-button-top-right {
+  position: absolute;
+  top: var(--fs-top-position);    
+  right: var(--fs-right-position);  
+  z-index: var(--z-index-overlay);
+  opacity: var(--fs-opacity-enabled); 
+}
+
+#btn-fullscreen {
+  padding: var(--fs-padding-y) var(--fs-padding-x);
+  font-size: var(--fs-font-size);
+  cursor: pointer;
+  border: 2px solid var(--fs-bg-color);
+  background-color: var(--fs-bg-color);
+  color: var(--cta-text-color);
+  border-radius: var(--cta-border-radius);
+  transition: background-color 0.3s;
+}
+
+#btn-fullscreen:hover {
+  background-color: #cc7a00;
+  border-color: #cc7a00;
+}
+
+/* ======================== */
+/* 縦に並ぶCTAボタンのスタイル */
+/* ======================== */
+.cta-buttons-overlay {
+  position: absolute; 
+  top: var(--cta-top-position);
+  left: var(--cta-left-position);
+  
+  display: flex;
+  flex-direction: column; 
+  gap: var(--cta-gap);
+  z-index: var(--z-index-overlay);
+}
+
+/* CTAボタン共通スタイル */
+.cta-buttons-overlay button {
+  padding: var(--cta-padding-y) var(--cta-padding-x);
+  font-size: var(--cta-font-size);
+  cursor: pointer;
+  border: 2px solid var(--cta-bg-color);
+  background-color: var(--cta-bg-color);
+  color: var(--cta-text-color);
+  border-radius: var(--cta-border-radius);
+  transition: opacity 0.3s, background-color 0.3s;
+  min-width: var(--cta-min-width);
+  text-align: center;
+  /* 💡 不透明度を適用 */
+  opacity: var(--cta-opacity-enabled); 
+}
+
+/* 💡 CTAボタンのホバーエフェクト追加 */
+.cta-buttons-overlay button:not(:disabled):hover {
+  background-color: #0056b3; 
+  border-color: #0056b3;
+}
+
+/* CTA 無効時のスタイル */
+.cta-buttons-overlay button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: default !important; 
+  /* 💡 無効時の不透明度を適用 */
+  opacity: var(--cta-opacity-disabled); 
+}
+
+/* ======================== */
+/* 🚨 全画面表示時のスタイル修正 (ボタンサイズを固定値で確実に適用) */
+/* ======================== */
+
+.video-container:fullscreen {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container:fullscreen .video-wrapper {
+  position: static; 
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  padding-bottom: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container:fullscreen #myVideo {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* --- 全画面時のボタンサイズ調整 --- */
+
+/* CTAボタンのサイズと位置を固定値で上書き */
+.video-container:fullscreen .cta-buttons-overlay {
+  position: absolute;
+  
+  /* 💡 全画面時の位置を固定値で上書き */
+  top: var(--fs-cta-top-fix); 
+  left: var(--fs-cta-left-fix); 
+  
+  /* 💡 gapも新しい固定値を適用 */
+  gap: var(--fs-cta-gap-fix); 
+}
+
+.video-container:fullscreen .cta-buttons-overlay button {
+  /* 💡 padding, font-size も新しい固定値を適用 */
+  padding: var(--fs-cta-padding-y-fix) var(--fs-cta-padding-x-fix);
+  font-size: var(--fs-cta-font-size-fix);
+  min-width: auto; 
+  /* 💡 全画面時にも有効時の不透明度を再適用 */
+  opacity: var(--cta-opacity-enabled); 
+}
+
+/* 💡 全画面時、かつ、CTA 無効時のスタイル */
+.video-container:fullscreen .cta-buttons-overlay button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: default !important; 
+  /* 💡 無効時の不透明度を再適用 */
+  opacity: var(--cta-opacity-disabled); 
+}
+
+/* 全画面ボタンのサイズを固定値で上書き */
+.video-container:fullscreen #btn-fullscreen {
+  /* 💡 変数値を直接適用 */
+  padding: var(--fs-fs-padding-y-fix) var(--fs-fs-padding-x-fix);
+  font-size: var(--fs-fs-font-size-fix);
+}
   padding: 40px 160px;
   /* 💡 変数値を直接適用 (20px) */
-  font-size: 20px;
+  font-size: 30px;
   min-width: auto; 
   /* 💡 全画面時にも有効時の不透明度を再適用 */
   opacity: var(--cta-opacity-enabled); 
