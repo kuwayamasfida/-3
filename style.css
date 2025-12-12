@@ -6,22 +6,21 @@
   --z-index-overlay: 2147483647;
   --video-aspect-ratio: 56.25%; /* 16:9 の場合: (9 / 16) * 100% = 56.25% */
   
-  /* --- CTAボタン群 (お客様の指定値で更新) --- */
+  /* --- CTAボタン群 (通常表示時の相対サイズ) --- */
   --cta-top-position: 25%;         /* 動画プレイヤー上端からの距離 */
   --cta-left-position: 3.75%;        /* ★位置: 親要素に対する % (左端からの距離) */
   --cta-gap: 1.25vh;               /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
-  /* 🚨 修正: 不透明度の指定は 0.0〜1.0 の数値であるため、1.0 を採用 */
-  --cta-opacity-enabled: 0.6; 
-  --cta-opacity-disabled: 0.3;
-  --cta-padding-y: 1.2vh;         /* サイズ: vh で連動 */
-  --cta-padding-x: 12.0vw;        /* サイズ: vw で連動 */
-  --cta-min-width: 8vw;           /* サイズ: vw で連動 */
-  --cta-font-size: 3.0vh;         /* サイズ: vh で連動 */
+  --cta-opacity-enabled: 0.6;      /* 有効時の不透明度 */
+  --cta-opacity-disabled: 0.3;     /* 無効時の不透明度 */
+  --cta-padding-y: 1.2vh;          /* サイズ: vh で連動 */
+  --cta-padding-x: 12.0vw;         /* サイズ: vw で連動 */
+  --cta-min-width: 8vw;           
+  --cta-font-size: 3.0vh;          /* サイズ: vh で連動 */
   --cta-border-radius: 5px;
 
-  /* --- 全画面ボタン --- */
+  /* --- 全画面ボタン (通常表示時の相対サイズ) --- */
   --fs-top-position: 2%;          
   --fs-right-position: 2%;        
   --fs-bg-color: #ff9900;
@@ -30,7 +29,7 @@
   --fs-font-size: 1.5vh;          
   --fs-opacity-enabled: 1.0;
   
-  /* 🚨 全画面時の代替サイズを定義（固定値） */
+  /* 🚨 全画面時の代替サイズを定義（固定値）*/
   --fs-cta-padding-y-fix: 40px;
   --fs-cta-padding-x-fix: 160px;
   --fs-cta-font-size-fix: 20px;
@@ -135,18 +134,23 @@ body {
   opacity: var(--cta-opacity-enabled); 
 }
 
+/* 💡 CTAボタンのホバーエフェクト追加 */
+.cta-buttons-overlay button:not(:disabled):hover {
+  background-color: #0056b3; 
+  border-color: #0056b3;
+}
+
 /* CTA 無効時のスタイル */
 .cta-buttons-overlay button:disabled {
-  /* 💡 背景色の透過を解除し、より透過させる場合は背景色を rgba に変更 */
   background-color: #ccc;
   border-color: #ccc;
   cursor: default !important; 
-  /* 💡 不透明度を適用 */
+  /* 💡 無効時の不透明度を適用 */
   opacity: var(--cta-opacity-disabled); 
 }
 
 /* ======================== */
-/* 🚨 全画面表示時のスタイル修正 (ボタンサイズ固定) */
+/* 🚨 全画面表示時のスタイル修正 (ボタンサイズを固定値で確実に適用) */
 /* ======================== */
 
 .video-container:fullscreen {
@@ -185,17 +189,33 @@ body {
 /* CTAボタンのサイズを固定値で上書き */
 .video-container:fullscreen .cta-buttons-overlay {
   position: absolute;
-  gap: var(--fs-cta-gap-fix); 
+  /* 💡 変数値を直接適用 (80px) */
+  gap: 80px; 
 }
 
 .video-container:fullscreen .cta-buttons-overlay button {
-  padding: var(--fs-cta-padding-y-fix) var(--fs-cta-padding-x-fix);
-  font-size: var(--fs-cta-font-size-fix);
+  /* 💡 変数値を直接適用 (40px 160px) */
+  padding: 40px 160px;
+  /* 💡 変数値を直接適用 (20px) */
+  font-size: 20px;
   min-width: auto; 
+  /* 💡 全画面時にも有効時の不透明度を再適用 */
+  opacity: var(--cta-opacity-enabled); 
+}
+
+/* 💡 全画面時、かつ、CTA 無効時のスタイル */
+.video-container:fullscreen .cta-buttons-overlay button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: default !important; 
+  /* 💡 無効時の不透明度を再適用 */
+  opacity: var(--cta-opacity-disabled); 
 }
 
 /* 全画面ボタンのサイズを固定値で上書き */
 .video-container:fullscreen #btn-fullscreen {
-  padding: var(--fs-fs-padding-y-fix) var(--fs-fs-padding-x-fix);
-  font-size: var(--fs-fs-font-size-fix);
+  /* 💡 変数値を直接適用 (10px 20px) */
+  padding: 10px 20px;
+  /* 💡 変数値を直接適用 (18px) */
+  font-size: 18px;
 }
