@@ -31,10 +31,10 @@
   --fs-opacity-enabled: 1.0;
   
   /* 🚨 全画面時の代替サイズを定義（固定値） */
-  --fs-cta-padding-y-fix: 30px;
-  --fs-cta-padding-x-fix: 80px;
+  --fs-cta-padding-y-fix: 40px;
+  --fs-cta-padding-x-fix: 160px;
   --fs-cta-font-size-fix: 20px;
-  --fs-cta-gap-fix: 40px;
+  --fs-cta-gap-fix: 80px;
   --fs-fs-padding-y-fix: 10px;
   --fs-fs-padding-x-fix: 20px;
   --fs-fs-font-size-fix: 18px;
