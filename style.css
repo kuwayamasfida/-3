@@ -11,8 +11,8 @@
   --cta-gap: 1.0vh;                 /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
-  --cta-padding-y: 0.8vh;           /* サイズ: vh で連動 */
-  --cta-padding-x: 1.8vw;           /* サイズ: vw で連動 */
+  --cta-padding-y: 1.5vh;           /* サイズ: vh で連動 */
+  --cta-padding-x: 5.4vw;           /* サイズ: vw で連動 */
   --cta-min-width: 8vw;             /* サイズ: vw で連動 */
   --cta-font-size: 1.4vh;           /* サイズ: vh で連動 */
   --cta-border-radius: 5px;
