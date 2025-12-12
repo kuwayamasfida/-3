@@ -9,12 +9,12 @@
   /* --- CTAボタン群 (通常表示時の相対サイズ) --- */
   --cta-top-position: 20%;         /* 動画プレイヤー上端からの距離 */
   --cta-left-position: 3.75%;        /* ★位置: 親要素に対する % (左端からの距離) */
-  --cta-gap: 0.1vh;               /* サイズ: vh で連動 */
+  --cta-gap: 0.01vh;               /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;      /* 有効時の不透明度 */
   --cta-opacity-disabled: 0.3;     /* 無効時の不透明度 */
-  --cta-padding-y: 1.2vh;          /* サイズ: vh で連動 */
+  --cta-padding-y: 1.0vh;          /* サイズ: vh で連動 */
   --cta-padding-x: 12.0vw;         /* サイズ: vw で連動 */
   --cta-min-width: 8vw;           
   --cta-font-size: 3.0vh;          /* サイズ: vh で連動 */
@@ -30,11 +30,11 @@
   --fs-opacity-enabled: 1.0;
   
   /* 🚨 全画面時の代替サイズを定義（固定値）*/
-  --fs-cta-padding-y-fix: 90px;
-  --fs-cta-padding-x-fix: 640px;
+  --fs-cta-padding-y-fix: 150px;
+  --fs-cta-padding-x-fix: 1000px;
   --fs-cta-font-size-fix: 60px;
-  --fs-cta-gap-fix: 5px;
-  --fs-cta-top-fix: 150px;          /*  新規追加: 全画面時の位置固定 (px) */
+  --fs-cta-gap-fix: 3px;
+  --fs-cta-top-fix: 200px;          /*  新規追加: 全画面時の位置固定 (px) */
   --fs-cta-left-fix: 100px;
 
   --fs-fs-padding-y-fix: 10px;
