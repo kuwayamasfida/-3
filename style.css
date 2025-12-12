@@ -7,7 +7,7 @@
   --video-aspect-ratio: 56.25%; /* 16:9 の場合: (9 / 16) * 100% = 56.25% */
   
   /* --- CTAボタン群 --- */
-  --cta-right-position: 3%;         /* ★位置: 親要素に対する % */
+  --cta-left-position: 3%;         /* ★位置: 親要素に対する % */
   --cta-gap: 1.0vh;                 /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
