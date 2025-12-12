@@ -7,15 +7,15 @@
   --video-aspect-ratio: 56.25%; /* 16:9 の場合: (9 / 16) * 100% = 56.25% */
   
   /* --- CTAボタン群 --- */
-  --cta-top-position: 5%;         
-  --cta-left-position: 5%;        
-  --cta-gap: 1.0vh;               
+  --cta-top-position: 24%;         
+  --cta-left-position: 3.8%;        
+  --cta-gap: 1.5vh;               
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-padding-y: 1.8vh;         
-  --cta-padding-x: 10.0vw;        
+  --cta-padding-x: 15.0vw;        
   --cta-min-width: 8vw;           
-  --cta-font-size: 1.4vh;         
+  --cta-font-size: 3.0vh;         
   --cta-border-radius: 5px;
   --cta-opacity-enabled: 1.0;
   --cta-opacity-disabled: 0.6;
@@ -30,10 +30,10 @@
   --fs-opacity-enabled: 1.0;
   
   /* 🚨 全画面時の代替サイズを定義（固定値） */
-  --fs-cta-padding-y-fix: 15px;
-  --fs-cta-padding-x-fix: 30px;
-  --fs-cta-font-size-fix: 16px;
-  --fs-cta-gap-fix: 10px;
+  --fs-cta-padding-y-fix: 25px;
+  --fs-cta-padding-x-fix: 100px;
+  --fs-cta-font-size-fix: 20px;
+  --fs-cta-gap-fix: 30px;
   --fs-fs-padding-y-fix: 10px;
   --fs-fs-padding-x-fix: 20px;
   --fs-fs-font-size-fix: 18px;
