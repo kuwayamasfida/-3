@@ -7,16 +7,16 @@
   --video-aspect-ratio: 56.25%; /* 16:9 の場合: (9 / 16) * 100% = 56.25% */
   
   /* --- CTAボタン群 (お客様の指定値で更新) --- */
-  --cta-top-position: 24%;         /* 動画プレイヤー上端からの距離 */
-  --cta-left-position: 3.8%;        /* ★位置: 親要素に対する % (左端からの距離) */
-  --cta-gap: 1.5vh;               /* サイズ: vh で連動 */
+  --cta-top-position: 25%;         /* 動画プレイヤー上端からの距離 */
+  --cta-left-position: 3.75%;        /* ★位置: 親要素に対する % (左端からの距離) */
+  --cta-gap: 1.25vh;               /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   /* 🚨 修正: 不透明度の指定は 0.0〜1.0 の数値であるため、1.0 を採用 */
-  --cta-opacity-enabled: 0.8; 
-  --cta-opacity-disabled: 0.5;
-  --cta-padding-y: 1.6vh;         /* サイズ: vh で連動 */
-  --cta-padding-x: 13.0vw;        /* サイズ: vw で連動 */
+  --cta-opacity-enabled: 0.6; 
+  --cta-opacity-disabled: 0.3;
+  --cta-padding-y: 1.2vh;         /* サイズ: vh で連動 */
+  --cta-padding-x: 12.0vw;        /* サイズ: vw で連動 */
   --cta-min-width: 8vw;           /* サイズ: vw で連動 */
   --cta-font-size: 3.0vh;         /* サイズ: vh で連動 */
   --cta-border-radius: 5px;
@@ -31,10 +31,10 @@
   --fs-opacity-enabled: 1.0;
   
   /* 🚨 全画面時の代替サイズを定義（固定値） */
-  --fs-cta-padding-y-fix: 20px;
-  --fs-cta-padding-x-fix: 45px;
-  --fs-cta-font-size-fix: 16px;
-  --fs-cta-gap-fix: 20px;
+  --fs-cta-padding-y-fix: 30px;
+  --fs-cta-padding-x-fix: 80px;
+  --fs-cta-font-size-fix: 20px;
+  --fs-cta-gap-fix: 40px;
   --fs-fs-padding-y-fix: 10px;
   --fs-fs-padding-x-fix: 20px;
   --fs-fs-font-size-fix: 18px;
