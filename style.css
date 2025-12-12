@@ -7,9 +7,9 @@
   --video-aspect-ratio: 56.25%; /* 16:9 の場合: (9 / 16) * 100% = 56.25% */
   
   /* --- CTAボタン群 (通常表示時の相対サイズ) --- */
-  --cta-top-position: 25%;         /* 動画プレイヤー上端からの距離 */
+  --cta-top-position: 20%;         /* 動画プレイヤー上端からの距離 */
   --cta-left-position: 3.75%;        /* ★位置: 親要素に対する % (左端からの距離) */
-  --cta-gap: 1.25vh;               /* サイズ: vh で連動 */
+  --cta-gap: 0.25vh;               /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;      /* 有効時の不透明度 */
@@ -30,10 +30,10 @@
   --fs-opacity-enabled: 1.0;
   
   /* 🚨 全画面時の代替サイズを定義（固定値）*/
-  --fs-cta-padding-y-fix: 40px;
-  --fs-cta-padding-x-fix: 160px;
-  --fs-cta-font-size-fix: 20px;
-  --fs-cta-gap-fix: 80px;
+  --fs-cta-padding-y-fix: 60px;
+  --fs-cta-padding-x-fix: 3200px;
+  --fs-cta-font-size-fix: 50px;
+  --fs-cta-gap-fix: 20px;
   --fs-fs-padding-y-fix: 10px;
   --fs-fs-padding-x-fix: 20px;
   --fs-fs-font-size-fix: 18px;
