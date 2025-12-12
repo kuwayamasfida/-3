@@ -34,6 +34,9 @@
   --fs-cta-padding-x-fix: 640px;
   --fs-cta-font-size-fix: 60px;
   --fs-cta-gap-fix: 5px;
+  --fs-cta-top-fix: 150px;          /*  新規追加: 全画面時の位置固定 (px) */
+  --fs-cta-left-fix: 100px;
+
   --fs-fs-padding-y-fix: 10px;
   --fs-fs-padding-x-fix: 20px;
   --fs-fs-font-size-fix: 18px;
