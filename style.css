@@ -6,19 +6,20 @@
   --z-index-overlay: 2147483647;
   --video-aspect-ratio: 56.25%; /* 16:9 の場合: (9 / 16) * 100% = 56.25% */
   
-  /* --- CTAボタン群 --- */
-  --cta-top-position: 24%;         
-  --cta-left-position: 3.8%;        
-  --cta-gap: 1.5vh;               
+  /* --- CTAボタン群 (お客様の指定値で更新) --- */
+  --cta-top-position: 24%;         /* 動画プレイヤー上端からの距離 */
+  --cta-left-position: 3.8%;        /* ★位置: 親要素に対する % (左端からの距離) */
+  --cta-gap: 1.5vh;               /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
-  --cta-padding-y: 1.8vh;         
-  --cta-padding-x: 15.0vw;        
-  --cta-min-width: 8vw;           
-  --cta-font-size: 3.0vh;         
+  /* 🚨 修正: 不透明度の指定は 0.0〜1.0 の数値であるため、1.0 を採用 */
+  --cta-opacity-enabled: 0.8; 
+  --cta-opacity-disabled: 0.5;
+  --cta-padding-y: 1.6vh;         /* サイズ: vh で連動 */
+  --cta-padding-x: 13.0vw;        /* サイズ: vw で連動 */
+  --cta-min-width: 8vw;           /* サイズ: vw で連動 */
+  --cta-font-size: 3.0vh;         /* サイズ: vh で連動 */
   --cta-border-radius: 5px;
-  --cta-opacity-enabled: 1.0;
-  --cta-opacity-disabled: 0.6;
 
   /* --- 全画面ボタン --- */
   --fs-top-position: 2%;          
@@ -30,10 +31,10 @@
   --fs-opacity-enabled: 1.0;
   
   /* 🚨 全画面時の代替サイズを定義（固定値） */
-  --fs-cta-padding-y-fix: 25px;
-  --fs-cta-padding-x-fix: 100px;
-  --fs-cta-font-size-fix: 20px;
-  --fs-cta-gap-fix: 30px;
+  --fs-cta-padding-y-fix: 20px;
+  --fs-cta-padding-x-fix: 45px;
+  --fs-cta-font-size-fix: 16px;
+  --fs-cta-gap-fix: 20px;
   --fs-fs-padding-y-fix: 10px;
   --fs-fs-padding-x-fix: 20px;
   --fs-fs-font-size-fix: 18px;
@@ -130,19 +131,22 @@ body {
   transition: opacity 0.3s, background-color 0.3s;
   min-width: var(--cta-min-width);
   text-align: center;
+  /* 💡 不透明度を適用 */
   opacity: var(--cta-opacity-enabled); 
 }
 
 /* CTA 無効時のスタイル */
 .cta-buttons-overlay button:disabled {
+  /* 💡 背景色の透過を解除し、より透過させる場合は背景色を rgba に変更 */
   background-color: #ccc;
   border-color: #ccc;
   cursor: default !important; 
+  /* 💡 不透明度を適用 */
   opacity: var(--cta-opacity-disabled); 
 }
 
 /* ======================== */
-/* 🚨【重要】全画面表示時のスタイル修正 */
+/* 🚨 全画面表示時のスタイル修正 (ボタンサイズ固定) */
 /* ======================== */
 
 .video-container:fullscreen {
@@ -180,14 +184,13 @@ body {
 
 /* CTAボタンのサイズを固定値で上書き */
 .video-container:fullscreen .cta-buttons-overlay {
-  position: absolute; /* 位置は絶対位置を維持 */
-  gap: var(--fs-cta-gap-fix); /* ギャップを固定値に */
+  position: absolute;
+  gap: var(--fs-cta-gap-fix); 
 }
 
 .video-container:fullscreen .cta-buttons-overlay button {
   padding: var(--fs-cta-padding-y-fix) var(--fs-cta-padding-x-fix);
   font-size: var(--fs-cta-font-size-fix);
-  /* min-width も固定値にするか、autoにする */
   min-width: auto; 
 }
 
