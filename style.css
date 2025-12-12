@@ -7,12 +7,13 @@
   --video-aspect-ratio: 56.25%; /* 16:9 の場合: (9 / 16) * 100% = 56.25% */
   
   /* --- CTAボタン群 --- */
-  --cta-left-position: 3%;         /* ★位置: 親要素に対する % */
+  --cta-top-position: 5%; /* 動画プレイヤー上端からの距離 */
+  --cta-left-position: 5%;         /* ★位置: 親要素に対する % */
   --cta-gap: 1.0vh;                 /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
-  --cta-padding-y: 1.5vh;           /* サイズ: vh で連動 */
-  --cta-padding-x: 5.4vw;           /* サイズ: vw で連動 */
+  --cta-padding-y: 1.8vh;           /* サイズ: vh で連動 */
+  --cta-padding-x: 10.0vw;           /* サイズ: vw で連動 */
   --cta-min-width: 8vw;             /* サイズ: vw で連動 */
   --cta-font-size: 1.4vh;           /* サイズ: vh で連動 */
   --cta-border-radius: 5px;
