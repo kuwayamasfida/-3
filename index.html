@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インタラクティブ動画プレイヤー</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インタラクティブ動画プレイヤー</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="video-container">
-    <div class="video-wrapper">
-        <video id="myVideo" controls controlslist="nodownload nofullscreen novolume noremoteplayback">
-            <source src="動画①表紙.mp4" type="video/mp4">
-            お使いのブラウザは動画タグをサポートしていません。
-        </video>
-        
-        <div class="fullscreen-button-top-right">
-            <button id="btn-fullscreen">全画面</button>
-        </div>
+    <div class="video-wrapper">
+        <video id="myVideo" controls controlslist="nodownload nofullscreen novolume noremoteplayback">
+            <source src="動画①表紙.mp4" type="video/mp4">
+            お使いのブラウザは動画タグをサポートしていません。
+        </video>
+        
+        <div class="fullscreen-button-top-right">
+            <button id="btn-fullscreen">全画面</button>
+        </div>
 
-        <div class="cta-buttons-overlay">
-                        <button id="btn-feature" data-url="https://www.sfidax.jp/company/" disabled>体験型ムービー</button>
-                        <button id="btn-strength" data-url="https://www.sfidax.jp/company/" disabled>シンプルな操作</button>
-                        <button id="btn-choice" data-url="https://www.sfidax.jp/recruit/" disabled>情報の選択</button>
-            
-                        <button id="btn-example" data-url="https://maruwa-kainyou.com/" disabled>事例動画</button>
-             
-                        <button id="btn-caution" data-url="https://www.sfidax.jp/access/" disabled>注意点</button>
-        </div>
-    </div>
+        <div class="cta-buttons-overlay">
+            <button id="btn-feature" data-url="https://www.sfidax.jp/company/" disabled>体験型ムービー</button>
+            <button id="btn-strength" data-url="https://www.sfidax.jp/company/" disabled>シンプルな操作</button>
+            <button id="btn-choice" data-url="https://www.sfidax.jp/recruit/" disabled>情報の選択</button>
+            <button id="btn-example" data-url="https://maruwa-kainyou.com/" disabled>事例動画</button>
+            <button id="btn-caution" data-url="https://www.sfidax.jp/access/" disabled>注意点</button>
+        </div>
+    </div>
 </div>
 
 <script src="script.js"></script>

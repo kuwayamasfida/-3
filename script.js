@@ -6,7 +6,7 @@ const video = document.getElementById('myVideo');
 const ctaContainer = document.querySelector('.cta-buttons-overlay'); 
 // カスタム全画面ボタンを取得 
 const fullscreenButton = document.getElementById('btn-fullscreen');
-// 💡 修正: 全画面表示のターゲット要素を '.video-wrapper' から '#myVideo' (動画要素) に変更
+// 全画面表示のターゲット要素 (動画要素)
 const fullscreenTarget = document.getElementById('myVideo'); 
 
 // =========================================================
@@ -75,14 +75,14 @@ function handleCtaClick(event) {
 }
 
 // =========================================================
-// 2. カスタム全画面ロジック (全画面ターゲットを #myVideo に変更)
+// 2. カスタム全画面ロジック (bodyクラス切り替えを追加)
 // =========================================================
 
 /**
  * 全画面表示の切り替え処理
  */
 function toggleFullscreen() {
-    // 💡 ターゲットは動画要素（#myVideo）
+    // ターゲットは動画要素（#myVideo）
     const target = fullscreenTarget; 
     
     // 現在全画面表示中の要素を取得 (クロスブラウザ対応)
@@ -110,7 +110,7 @@ function toggleFullscreen() {
 }
 
 /**
- * 全画面状態が変化した際のボタンテキスト更新
+ * 全画面状態が変化した際のボタンテキスト更新とbodyクラス切り替え (💡 修正箇所)
  */
 function handleFullscreenChange() {
     // 現在全画面表示中の要素を取得 (クロスブラウザ対応)
@@ -118,8 +118,12 @@ function handleFullscreenChange() {
     
     if (isFullscreen) {
         fullscreenButton.textContent = '全画面解除';
+        // 💡 修正: 全画面時にbodyにクラスを追加
+        document.body.classList.add('is-fullscreen'); 
     } else {
         fullscreenButton.textContent = '全画面表示2'; 
+        // 💡 修正: 全画面解除時にbodyからクラスを削除
+        document.body.classList.remove('is-fullscreen');
     }
 }
 
