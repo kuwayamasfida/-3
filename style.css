@@ -30,19 +30,6 @@
 }
 
 /* ======================== */
-/* CTAボタン群（通常表示） */追加
-/* ======================== */
-.cta-buttons-overlay {
-  position: absolute;
-  top: var(--cta-top-position);
-  left: var(--cta-left-position);
-  display: flex;
-  flex-direction: column;
-  gap: var(--cta-gap);
-  z-index: var(--z-index-overlay);
-}
-
-/* ======================== */
 /* 基本レイアウト */
 /* ======================== */
 html, body {
@@ -145,7 +132,6 @@ body {
 /* ======================== */
 /* 🚨 全画面表示時（video-wrapper 基準） */
 /* ======================== */
-
 .video-wrapper:fullscreen {
   width: 100%;
   height: 100%;
@@ -165,17 +151,17 @@ body {
   object-fit: contain;
 }
 
-/* --- CTAボタン：全画面時は固定サイズ --- */
+/* --- CTAボタン：全画面時（レスポンシブ対応） --- */
 .video-wrapper:fullscreen .cta-buttons-overlay {
   position: absolute;
   top: 22%;
-  left: 3.70%;
-  gap: 1px;
+  left: 3.7%;
+  gap: 0.2vh;
 }
 
 .video-wrapper:fullscreen .cta-buttons-overlay button {
-  padding: 16px 395px;
-  font-size: 30px;
+  padding: 1.2vh 18vw;
+  font-size: 3vh;
   min-width: auto;
   opacity: var(--cta-opacity-enabled);
 }
