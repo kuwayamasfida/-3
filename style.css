@@ -161,7 +161,7 @@ body {
 }
 
 .video-wrapper:fullscreen .cta-buttons-overlay button {
-  padding: 28px 390px;
+  padding: 18px 395px;
   font-size: 30px;
   min-width: auto;
   opacity: var(--cta-opacity-enabled);
