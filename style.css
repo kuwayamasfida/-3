@@ -8,7 +8,6 @@
   /* --- CTAボタン群（通常時） --- */
   --cta-top-position: 19%;
   --cta-left-position: 3.75%;
-  --cta-gap: clamp(0px, 0.08vh, 1px);
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;
@@ -18,6 +17,13 @@
   --cta-min-width: 8vw;
   --cta-font-size: 3vh;
   --cta-border-radius: 5px;
+
+  /* CTA個別位置（通常時） */
+  --cta-1-top: 0vh;
+  --cta-2-top: 6vh;
+  --cta-3-top: 12vh;
+  --cta-4-top: 18vh;
+  --cta-5-top: 24vh;
 
   /* --- 全画面ボタン（通常時） --- */
   --fs-top-position: 2%;
@@ -30,22 +36,10 @@
 }
 
 /* ======================== */
-/* CTAボタン群（通常表示） */追加
-/* ======================== */
-.cta-buttons-overlay {
-  position: absolute;
-  top: var(--cta-top-position);
-  left: var(--cta-left-position);
-  display: flex;
-  flex-direction: column;
-  gap: var(--cta-gap);
-  z-index: var(--z-index-overlay);
-}
-
-/* ======================== */
 /* 基本レイアウト */
 /* ======================== */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -85,7 +79,6 @@ body {
   top: var(--fs-top-position);
   right: var(--fs-right-position);
   z-index: var(--z-index-overlay);
-  opacity: var(--fs-opacity-enabled);
 }
 
 #btn-fullscreen {
@@ -96,28 +89,21 @@ body {
   background-color: var(--fs-bg-color);
   color: var(--cta-text-color);
   border-radius: var(--cta-border-radius);
-  transition: background-color 0.3s;
-}
-
-#btn-fullscreen:hover {
-  background-color: #cc7a00;
-  border-color: #cc7a00;
 }
 
 /* ======================== */
-/* CTAボタン群（通常表示） */
+/* CTAボタン群（通常時：個別配置） */
 /* ======================== */
 .cta-buttons-overlay {
   position: absolute;
   top: var(--cta-top-position);
   left: var(--cta-left-position);
-  display: flex;
-  flex-direction: column;
-  gap: var(--cta-gap);
   z-index: var(--z-index-overlay);
 }
 
+/* CTAボタン共通 */
 .cta-buttons-overlay button {
+  position: absolute;
   padding: var(--cta-padding-y) var(--cta-padding-x);
   font-size: var(--cta-font-size);
   cursor: pointer;
@@ -130,11 +116,33 @@ body {
   transition: opacity 0.3s, background-color 0.3s;
 }
 
-.cta-buttons-overlay button:not(:disabled):hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+/* 個別配置（通常時） */
+#btn-feature {
+  top: var(--cta-1-top);
+  left: 0;
 }
 
+#btn-strength {
+  top: var(--cta-2-top);
+  left: 0;
+}
+
+#btn-choice {
+  top: var(--cta-3-top);
+  left: 0;
+}
+
+#btn-example {
+  top: var(--cta-4-top);
+  left: 0;
+}
+
+#btn-caution {
+  top: var(--cta-5-top);
+  left: 0;
+}
+
+/* 無効状態 */
 .cta-buttons-overlay button:disabled {
   background-color: #ccc;
   border-color: #ccc;
@@ -143,50 +151,31 @@ body {
 }
 
 /* ======================== */
-/* 🚨 全画面表示時（video-wrapper 基準） */
+/* 🚨 全画面表示時 */
 /* ======================== */
-
 .video-wrapper:fullscreen {
   width: 100%;
   height: 100%;
   padding-bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: black;
 }
 
-.video-wrapper:fullscreen #myVideo {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* --- CTAボタン：全画面時は固定サイズ --- */
+/* 全画面時 CTAは flex に戻す */
 .video-wrapper:fullscreen .cta-buttons-overlay {
-  position: absolute;
-  top: 22%;
-  left: 3.70%;
+  display: flex;
+  flex-direction: column;
   gap: 1px;
+  top: 22%;
+  left: 3.7%;
 }
 
 .video-wrapper:fullscreen .cta-buttons-overlay button {
+  position: static;
   padding: 16px 395px;
   font-size: 30px;
-  min-width: auto;
-  opacity: var(--cta-opacity-enabled);
 }
 
-.video-wrapper:fullscreen .cta-buttons-overlay button:disabled {
-  background-color: #ccc;
-  border-color: #ccc;
-  opacity: var(--cta-opacity-disabled);
-}
-
-/* --- 全画面ボタン：固定サイズ --- */
+/* 全画面ボタン */
 .video-wrapper:fullscreen #btn-fullscreen {
   padding: 10px 20px;
   font-size: 18px;
