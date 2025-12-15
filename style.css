@@ -14,7 +14,7 @@
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;      /* 有効時の不透明度 */
   --cta-opacity-disabled: 0.3;     /* 無効時の不透明度 */
-  --cta-padding-y: 1.0vh;          /* サイズ: vh で連動 */
+  --cta-padding-y: 0.9vh;          /* サイズ: vh で連動 */
   --cta-padding-x: 12.0vw;         /* サイズ: vw で連動 */
   --cta-min-width: 8vw;           
   --cta-font-size: 3.0vh;          /* サイズ: vh で連動 */
@@ -30,12 +30,12 @@
   --fs-opacity-enabled: 1.0;
 
   /* 🚨 全画面時の代替サイズを定義（固定値/px）*/
-  --fs-cta-padding-y-fix: 150px;
-  --fs-cta-padding-x-fix: 1000px;
-  --fs-cta-font-size-fix: 60px;
-  --fs-cta-gap-fix: 3px;
-  --fs-cta-top-fix: 200px;         /* 新規追加: 全画面時の位置固定 (px) */
-  --fs-cta-left-fix: 100px;
+  --fs-cta-padding-y-fix: 15px;
+  --fs-cta-padding-x-fix: 80px;
+  --fs-cta-font-size-fix: 24px;
+  --fs-cta-gap-fix: 10px;
+  --fs-cta-top-fix: 50px;         /* 新規追加: 全画面時の位置固定 (px) */
+  --fs-cta-left-fix: 50px;
 
   --fs-fs-padding-y-fix: 10px;
   --fs-fs-padding-x-fix: 20px;
