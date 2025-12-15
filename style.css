@@ -9,7 +9,6 @@
   /* --- CTAボタン群（通常時） --- */
   --cta-top-position: 18%;
   --cta-left-position: 3.75%;
-  --cta-row-gap: 0; /* 💡 修正: 0.3vh から 0 に変更 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;

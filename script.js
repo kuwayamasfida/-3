@@ -113,7 +113,7 @@ function handleFullscreenChange() {
     if (isFullscreen) {
         fullscreenButton.textContent = '全画面解除';
     } else {
-        fullscreenButton.textContent = '全画面27';
+        fullscreenButton.textContent = '全画面28';
     }
 }
 
