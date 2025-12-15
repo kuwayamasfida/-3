@@ -8,7 +8,7 @@
   /* --- CTAボタン群（通常時） --- */
   --cta-top-position: 19%;
   --cta-left-position: 3.75%;
-  --cta-gap: 0.5%;
+  --cta-gap: 0.5vh;
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;
@@ -27,6 +27,19 @@
   --fs-padding-x: 1.5vw;
   --fs-font-size: 1.5vh;
   --fs-opacity-enabled: 1;
+}
+
+/* ======================== */
+/* CTAボタン群（通常表示） */追加
+/* ======================== */
+.cta-buttons-overlay {
+  position: absolute;
+  top: var(--cta-top-position);
+  left: var(--cta-left-position);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cta-gap);
+  z-index: var(--z-index-overlay);
 }
 
 /* ======================== */
