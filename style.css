@@ -9,7 +9,7 @@
   /* --- CTAボタン群 (通常表示時の相対サイズ) --- */
   --cta-top-position: 20%;        /* 動画プレイヤー上端からの距離 */
   --cta-left-position: 3.75%;        /* ★位置: 親要素に対する % (左端からの距離) */
-  --cta-gap: 0.01vh;               /* サイズ: vh で連動 (※非常に小さい値) */
+  --cta-gap: 1vh;               /* サイズ: vh で連動 (※非常に小さい値) */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;      /* 有効時の不透明度 */
