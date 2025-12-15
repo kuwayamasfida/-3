@@ -6,14 +6,14 @@
   --video-aspect-ratio: 56.25%; /* 16:9 */
 
   /* --- CTAボタン群（通常時） --- */
-  --cta-top-position: 19%;
+  --cta-top-position: 18%;
   --cta-left-position: 3.75%;
-  --cta-row-gap: 0.2vh;
+  --cta-row-gap: 0.3vh;
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;
   --cta-opacity-disabled: 0.3;
-  --cta-padding-y: 0.3vh;
+  --cta-padding-y: 0.2vh;
   --cta-padding-x: 12vw;
   --cta-min-width: 8vw;
   --cta-font-size: 3vh;
@@ -38,7 +38,7 @@
   left: var(--cta-left-position);
   display: flex;
   flex-direction: column;
-  gap: var(--cta-gap);
+  row-gap: var(--cta-row-gap);
   z-index: var(--z-index-overlay);
 }
 
@@ -113,7 +113,7 @@ body {
   left: var(--cta-left-position);
   display: flex;
   flex-direction: column;
-  gap: var(--cta-gap);
+  row-gap: var(--cta-row-gap);
   z-index: var(--z-index-overlay);
 }
 
@@ -170,7 +170,7 @@ body {
   position: absolute;
   top: 22%;
   left: 3.70%;
-  gap: 1px;
+  row-gap: 1px;
 }
 
 .video-wrapper:fullscreen .cta-buttons-overlay button {
