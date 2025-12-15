@@ -19,11 +19,11 @@
   --cta-border-radius: 5px;
 
   /* CTA個別位置（通常時） */
-  --cta-1-top: 2vh;
+  --cta-1-top: 4vh;
   --cta-2-top: 12vh;
-  --cta-3-top: 22vh;
-  --cta-4-top: 32vh;
-  --cta-5-top: 42vh;
+  --cta-3-top: 20vh;
+  --cta-4-top: 28vh;
+  --cta-5-top: 36vh;
 
   /* --- 全画面ボタン（通常時） --- */
   --fs-top-position: 2%;
