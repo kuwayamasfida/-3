@@ -1,134 +1,193 @@
-// script.js
+/* ======================== */
+/* 💎 CSS 変数定義 */
+/* ======================== */
+:root {
+  --z-index-overlay: 2147483647;
+  --video-aspect-ratio: 56.25%; /* 16:9 */
 
-// 動画要素を取得
-const video = document.getElementById('myVideo');
-// 全てのCTAボタンを取得 
-const ctaButtons = document.querySelectorAll('.cta-buttons-overlay button'); 
-// カスタム全画面ボタンを取得 
-const fullscreenButton = document.getElementById('btn-fullscreen');
-// 全画面表示のターゲット要素
-const fullscreenTarget = document.querySelector('.video-wrapper');
+  /* --- CTAボタン群（通常時） --- */
+  --cta-top-position: 19%;
+  --cta-left-position: 3.75%;
+  --cta-gap: 0.15vh;
+  --cta-bg-color: #007bff;
+  --cta-text-color: white;
+  --cta-opacity-enabled: 0.6;
+  --cta-opacity-disabled: 0.3;
+  --cta-padding-y: 0.3vh;
+  --cta-padding-x: 12vw;
+  --cta-min-width: 8vw;
+  --cta-font-size: 3vh;
+  --cta-border-radius: 5px;
 
-// =========================================================
-// 1. CTAボタンの有効/無効切り替えロジック
-// =========================================================
-
-/**
- * 💡 修正点：各CTAボタンのIDとタイミングを一致させ、5つ目のボタンを追加
- */
-const ctaTimings = {
-    // HTML ID: btn-feature
-    'btn-feature': { start: 15, end: 25, url: 'https://www.sfidax.jp/company/' },
-    // HTML ID: btn-strength
-    'btn-strength': { start: 15, end: 25, url: 'https://www.sfidax.jp/company/' },
-    // HTML ID: btn-choice (情報の選択)
-    'btn-choice': { start: 15, end: 25, url: 'https://www.sfidax.jp/recruit/' },
-    // HTML ID: btn-example
-    'btn-example': { start: 15, end: 25, url: 'https://maruwa-kainyou.com/' },
-    // HTML ID: btn-caution (注意点)
-    'btn-caution': { start: 15, end: 25, url: 'https://www.sfidax.jp/access/' } // 新しいタイミングを設定
-};
-
-/**
- * 動画の現在の再生時間に基づいてCTAボタンの有効/無効を切り替える関数
- */
-function updateButtonState() {
-    const currentTime = video.currentTime;
-
-    ctaButtons.forEach(button => {
-        const buttonId = button.id;
-        // 💡 ctaTimingsの定義とHTMLのIDを照合
-        const timing = ctaTimings[buttonId]; 
-
-        if (timing) {
-            // 現在の時間が表示範囲内にあるかチェック
-            if (currentTime >= timing.start && currentTime < timing.end) {
-                button.disabled = false;
-            } else {
-                button.disabled = true;
-            }
-        } else {
-            // 💡 IDがctaTimingsに存在しないボタンは常に無効にしておく
-            button.disabled = true;
-        }
-    });
+  /* --- 全画面ボタン（通常時） --- */
+  --fs-top-position: 2%;
+  --fs-right-position: 2%;
+  --fs-bg-color: #ff9900;
+  --fs-padding-y: 0.7vh;
+  --fs-padding-x: 1.5vw;
+  --fs-font-size: 1.5vh;
+  --fs-opacity-enabled: 1;
 }
 
-/**
- * CTAボタンがクリックされたときの処理
- */
-function handleCtaClick(event) {
-    const button = event.currentTarget;
-    if (button.disabled) {
-        return;
-    }
-    const url = button.getAttribute('data-url');
-    if (url) {
-        window.open(url, '_blank');
-        // 必要であればここで video.pause(); を呼び出し動画を一時停止する
-    }
+/* ======================== */
+/* CTAボタン群（通常表示） */追加
+/* ======================== */
+.cta-buttons-overlay {
+  position: absolute;
+  top: var(--cta-top-position);
+  left: var(--cta-left-position);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cta-gap);
+  z-index: var(--z-index-overlay);
 }
 
-// =========================================================
-// 2. カスタム全画面ロジック (変更なし)
-// =========================================================
-
-/**
- * 全画面表示の切り替え処理
- */
-function toggleFullscreen() {
-    const target = fullscreenTarget; // .video-wrapper要素
-    
-    // 現在全画面表示中の要素を取得 (クロスブラウザ対応)
-    const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement;
-    
-    if (isFullscreen) {
-        // 全画面を解除
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { /* Safari */
-            document.webkitExitFullscreen();
-        } else if (document.mozCancelFullScreen) { /* Firefox */
-            document.mozCancelFullScreen();
-        }
-    } else {
-        // 全画面を表示
-        if (target.requestFullscreen) {
-            target.requestFullscreen();
-        } else if (target.webkitRequestFullscreen) { /* Chrome, Safari, Edge */
-            target.webkitRequestFullscreen();
-        } else if (target.mozRequestFullScreen) { /* Firefox */
-            target.mozRequestFullScreen();
-        }
-    }
+/* ======================== */
+/* 基本レイアウト */
+/* ======================== */
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-/**
- * 全画面状態が変化した際のボタンテキスト更新
- */
-function handleFullscreenChange() {
-    // 現在全画面表示中の要素を取得 (クロスブラウザ対応)
-    const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement;
-    
-    if (isFullscreen) {
-        fullscreenButton.textContent = '全画面解除';
-    } else {
-        fullscreenButton.textContent = '全画面29';
-    }
+body {
+  font-family: sans-serif;
 }
 
+.video-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: black;
+}
 
-// --- イベントリスナーの設定 (変更なし) ---
+/* アスペクト比制御 */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: var(--video-aspect-ratio);
+}
 
-// CTAのロジック
-video.addEventListener('timeupdate', updateButtonState);
-video.addEventListener('loadedmetadata', updateButtonState);
-ctaButtons.forEach(button => {
-    button.addEventListener('click', handleCtaClick);
-});
+#myVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
-// カスタム全画面のロジック
-fullscreenButton.addEventListener('click', toggleFullscreen);
-document.addEventListener('fullscreenchange', handleFullscreenChange);
-document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+/* ======================== */
+/* 全画面ボタン（右上） */
+/* ======================== */
+.fullscreen-button-top-right {
+  position: absolute;
+  top: var(--fs-top-position);
+  right: var(--fs-right-position);
+  z-index: var(--z-index-overlay);
+  opacity: var(--fs-opacity-enabled);
+}
+
+#btn-fullscreen {
+  padding: var(--fs-padding-y) var(--fs-padding-x);
+  font-size: var(--fs-font-size);
+  cursor: pointer;
+  border: 2px solid var(--fs-bg-color);
+  background-color: var(--fs-bg-color);
+  color: var(--cta-text-color);
+  border-radius: var(--cta-border-radius);
+  transition: background-color 0.3s;
+}
+
+#btn-fullscreen:hover {
+  background-color: #cc7a00;
+  border-color: #cc7a00;
+}
+
+/* ======================== */
+/* CTAボタン群（通常表示） */
+/* ======================== */
+.cta-buttons-overlay {
+  position: absolute;
+  top: var(--cta-top-position);
+  left: var(--cta-left-position);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cta-gap);
+  z-index: var(--z-index-overlay);
+}
+
+.cta-buttons-overlay button {
+  padding: var(--cta-padding-y) var(--cta-padding-x);
+  font-size: var(--cta-font-size);
+  cursor: pointer;
+  border: 2px solid var(--cta-bg-color);
+  background-color: var(--cta-bg-color);
+  color: var(--cta-text-color);
+  border-radius: var(--cta-border-radius);
+  min-width: var(--cta-min-width);
+  opacity: var(--cta-opacity-enabled);
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.cta-buttons-overlay button:not(:disabled):hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.cta-buttons-overlay button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: default;
+  opacity: var(--cta-opacity-disabled);
+}
+
+/* ======================== */
+/* 🚨 全画面表示時（video-wrapper 基準） */
+/* ======================== */
+
+.video-wrapper:fullscreen {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.video-wrapper:fullscreen #myVideo {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* --- CTAボタン：全画面時は固定サイズ --- */
+.video-wrapper:fullscreen .cta-buttons-overlay {
+  position: absolute;
+  top: 22%;
+  left: 3.70%;
+  gap: 1px;
+}
+
+.video-wrapper:fullscreen .cta-buttons-overlay button {
+  padding: 16px 395px;
+  font-size: 30px;
+  min-width: auto;
+  opacity: var(--cta-opacity-enabled);
+}
+
+.video-wrapper:fullscreen .cta-buttons-overlay button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  opacity: var(--cta-opacity-disabled);
+}
+
+/* --- 全画面ボタン：固定サイズ --- */
+.video-wrapper:fullscreen #btn-fullscreen {
+  padding: 10px 20px;
+  font-size: 18px;
+}
