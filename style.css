@@ -8,12 +8,12 @@
   /* --- CTAボタン群（通常時） --- */
   --cta-top-position: 19%;
   --cta-left-position: 3.75%;
-  --cta-gap: 0.02vh;
+  --cta-gap: 0.01vh;
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;
   --cta-opacity-disabled: 0.3;
-  --cta-padding-y: 1.0vh;
+  --cta-padding-y: 0.9vh;
   --cta-padding-x: 12vw;
   --cta-min-width: 8vw;
   --cta-font-size: 3vh;
@@ -155,13 +155,13 @@ body {
 /* --- CTAボタン：全画面時は固定サイズ --- */
 .video-wrapper:fullscreen .cta-buttons-overlay {
   position: absolute;
-  top: 19%;
-  left: 3.75%;
-  gap: 8px;
+  top: 20%;
+  left: 3.70%;
+  gap: 3px;
 }
 
 .video-wrapper:fullscreen .cta-buttons-overlay button {
-  padding: 35px 400px;
+  padding: 28px 390px;
   font-size: 30px;
   min-width: auto;
   opacity: var(--cta-opacity-enabled);

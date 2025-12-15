@@ -18,15 +18,15 @@ const fullscreenTarget = document.querySelector('.video-wrapper');
  */
 const ctaTimings = {
     // HTML ID: btn-feature
-    'btn-feature': { start: 5, end: 25, url: 'https://www.sfidax.jp/company/' },
+    'btn-feature': { start: 15, end: 25, url: 'https://www.sfidax.jp/company/' },
     // HTML ID: btn-strength
     'btn-strength': { start: 15, end: 25, url: 'https://www.sfidax.jp/company/' },
     // HTML ID: btn-choice (情報の選択)
-    'btn-choice': { start: 25, end: 25, url: 'https://www.sfidax.jp/recruit/' },
+    'btn-choice': { start: 15, end: 25, url: 'https://www.sfidax.jp/recruit/' },
     // HTML ID: btn-example
-    'btn-example': { start: 35, end: 25, url: 'https://maruwa-kainyou.com/' },
+    'btn-example': { start: 15, end: 25, url: 'https://maruwa-kainyou.com/' },
     // HTML ID: btn-caution (注意点)
-    'btn-caution': { start: 45, end: 25, url: 'https://www.sfidax.jp/access/' } // 新しいタイミングを設定
+    'btn-caution': { start: 15, end: 25, url: 'https://www.sfidax.jp/access/' } // 新しいタイミングを設定
 };
 
 /**
@@ -113,7 +113,7 @@ function handleFullscreenChange() {
     if (isFullscreen) {
         fullscreenButton.textContent = '全画面解除';
     } else {
-        fullscreenButton.textContent = '全画面2';
+        fullscreenButton.textContent = '全画面3';
     }
 }
 
