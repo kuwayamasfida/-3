@@ -8,7 +8,7 @@
   /* --- CTAボタン群（通常時） --- */
   --cta-top-position: 19%;
   --cta-left-position: 3.75%;
-  --cta-gap: 0.1vh;
+  --cta-gap: 0.11vh;
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;
@@ -161,7 +161,7 @@ body {
 }
 
 .video-wrapper:fullscreen .cta-buttons-overlay button {
-  padding: 18px 395px;
+  padding: 15px 395px;
   font-size: 30px;
   min-width: auto;
   opacity: var(--cta-opacity-enabled);
