@@ -9,22 +9,21 @@
   /* --- CTAボタン群 (通常表示時の相対サイズ) --- */
   --cta-top-position: 20%;         /* 動画プレイヤー上端からの距離 */
   --cta-left-position: 3.75%;        /* ★位置: 親要素に対する % (左端からの距離) */
-  --cta-gap: 0.01vh;               /* サイズ: vh で連動 */
+  --cta-gap: 5%;               /* サイズ: vh で連動 */
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;      /* 有効時の不透明度 */
   --cta-opacity-disabled: 0.3;     /* 無効時の不透明度 */
-  --cta-padding-y: 1.0vh;          /* サイズ: vh で連動 */
-  --cta-padding-x: 12.0vw;         /* サイズ: vw で連動 */
-  --cta-min-width: 8vw;           
-  --cta-font-size: 3.0vh;          /* サイズ: vh で連動 */
+  --cta-padding-y: 10%;          /* サイズ: vh で連動 */
+  --cta-padding-x: 65%;         /* サイズ: vw で連動 */       
+  --cta-font-size: 3%;          /* サイズ: vh で連動 */
   --cta-border-radius: 5px;
 
   /* --- 全画面ボタン (通常表示時の相対サイズ) --- */
   --fs-top-position: 2%;          
   --fs-right-position: 2%;        
   --fs-bg-color: #ff9900;
-  --fs-padding-y: 0.7vh;          
+  --fs-padding-y: 0.7%;          
   --fs-padding-x: 1.5vw;          
   --fs-font-size: 1.5vh;          
   --fs-opacity-enabled: 1.0;
