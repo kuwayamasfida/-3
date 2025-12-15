@@ -8,12 +8,12 @@
   /* --- CTAボタン群（通常時） --- */
   --cta-top-position: 19%;
   --cta-left-position: 3.75%;
-  --cta-gap: 1px;
+  --cta-gap: 0.7vh;
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;
   --cta-opacity-disabled: 0.3;
-  --cta-padding-y: 0.9vh;
+  --cta-padding-y: 0.5vh;
   --cta-padding-x: 12vw;
   --cta-min-width: 8vw;
   --cta-font-size: 3vh;
