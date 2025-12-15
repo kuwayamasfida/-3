@@ -1,19 +1,19 @@
 /* ======================== */
-/* 💎 CSS 変数定義 (位置は %、サイズは vw/vh で連動) */
+/* 💎 CSS 変数定義 */
 /* ======================== */
 :root {
-  /* --- 全般 --- */
   --z-index-overlay: 2147483647;
   --video-aspect-ratio: 56.25%; /* 16:9 */
 
   /* --- CTAボタン群（通常時） --- */
-  --cta-top-position: 18%;
+  --cta-top-position: 19%;
   --cta-left-position: 3.75%;
+  --cta-gap: 0.15vh;
   --cta-bg-color: #007bff;
   --cta-text-color: white;
   --cta-opacity-enabled: 0.6;
   --cta-opacity-disabled: 0.3;
-  --cta-padding-y: 0.2vh;
+  --cta-padding-y: 0.3vh;
   --cta-padding-x: 12vw;
   --cta-min-width: 8vw;
   --cta-font-size: 3vh;
@@ -27,18 +27,19 @@
   --fs-padding-x: 1.5vw;
   --fs-font-size: 1.5vh;
   --fs-opacity-enabled: 1;
+}
 
-  /* 🚨 全画面時の代替サイズを定義（固定値/px）*/
-  --fs-cta-padding-y-fix: 150px;
-  --fs-cta-padding-x-fix: 1000px;
-  --fs-cta-font-size-fix: 60px;
-  --fs-cta-gap-fix: 3px;
-  --fs-cta-top-fix: 200px;         /* 全画面時の位置固定 (px) */
-  --fs-cta-left-fix: 100px;        /* 全画面時の位置固定 (px) */
-
-  --fs-fs-padding-y-fix: 10px;
-  --fs-fs-padding-x-fix: 20px;
-  --fs-fs-font-size-fix: 18px;
+/* ======================== */
+/* CTAボタン群（通常表示） */追加
+/* ======================== */
+.cta-buttons-overlay {
+  position: absolute;
+  top: var(--cta-top-position);
+  left: var(--cta-left-position);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cta-gap);
+  z-index: var(--z-index-overlay);
 }
 
 /* ======================== */
@@ -104,7 +105,7 @@ body {
 }
 
 /* ======================== */
-/* 縦に並ぶCTAボタンのスタイル（通常表示） */
+/* CTAボタン群（通常表示） */
 /* ======================== */
 .cta-buttons-overlay {
   position: absolute;
@@ -112,8 +113,7 @@ body {
   left: var(--cta-left-position);
   display: flex;
   flex-direction: column;
-  /* 💡 修正: ここで --cta-row-gap: 0 が適用される */
-  row-gap: var(--cta-row-gap);
+  gap: var(--cta-gap);
   z-index: var(--z-index-overlay);
 }
 
@@ -168,17 +168,14 @@ body {
 /* --- CTAボタン：全画面時は固定サイズ --- */
 .video-wrapper:fullscreen .cta-buttons-overlay {
   position: absolute;
-  /* 💡 変数を適用して位置を固定 */
-  top: var(--fs-cta-top-fix);
-  left: var(--fs-cta-left-fix);
-  /* 💡 変数を適用してギャップを固定 */
-  row-gap: var(--fs-cta-gap-fix);
+  top: 22%;
+  left: 3.70%;
+  gap: 1px;
 }
 
 .video-wrapper:fullscreen .cta-buttons-overlay button {
-  /* 💡 変数を適用してパディングとフォントサイズを固定 */
-  padding: var(--fs-cta-padding-y-fix) var(--fs-cta-padding-x-fix);
-  font-size: var(--fs-cta-font-size-fix);
+  padding: 16px 395px;
+  font-size: 30px;
   min-width: auto;
   opacity: var(--cta-opacity-enabled);
 }
@@ -191,7 +188,6 @@ body {
 
 /* --- 全画面ボタン：固定サイズ --- */
 .video-wrapper:fullscreen #btn-fullscreen {
-  /* 💡 変数を適用してパディングとフォントサイズを固定 */
-  padding: var(--fs-fs-padding-y-fix) var(--fs-fs-padding-x-fix);
-  font-size: var(--fs-fs-font-size-fix);
+  padding: 10px 20px;
+  font-size: 18px;
 }
