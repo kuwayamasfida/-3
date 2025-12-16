@@ -18,7 +18,7 @@ const fullscreenTarget = document.querySelector('.video-wrapper');
  */
 const ctaTimings = {
     // HTML ID: btn-feature
-    'btn-feature': { start: 15, end: 25, url: 'https://www.sfidax.jp/company/' },
+    'btn-feature': { start: 15, end: 25, url: 'https://kuwayamasfida.github.io/-4.taiken/' },
     // HTML ID: btn-strength
     'btn-strength': { start: 15, end: 25, url: 'https://www.sfidax.jp/company/' },
     // HTML ID: btn-choice (情報の選択)
