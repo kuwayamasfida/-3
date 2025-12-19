@@ -20,13 +20,13 @@ const ctaTimings = {
     // HTML ID: btn-feature
     'btn-feature': { start: 40, end: 50, url: 'https://kuwayamasfida.github.io/-4.taiken/' },
     // HTML ID: btn-strength
-    'btn-strength': { start: 40, end: 50, url: 'https://www.sfidax.jp/company/' },
+    'btn-strength': { start: 40, end: 50, url: 'https://kuwayamasfida.github.io/6.simple/' },
     // HTML ID: btn-choice (情報の選択)
-    'btn-choice': { start: 40, end: 50, url: 'https://www.sfidax.jp/recruit/' },
+    'btn-choice': { start: 40, end: 50, url: 'https://kuwayamasfida.github.io/7.choice/' },
     // HTML ID: btn-example
     'btn-example': { start: 40, end: 50, url: 'https://maruwa-kainyou.com/' },
     // HTML ID: btn-caution (注意点)
-    'btn-caution': { start: 40, end: 50, url: 'https://www.sfidax.jp/access/' } // 新しいタイミングを設定
+    'btn-caution': { start: 40, end: 50, url: 'https://kuwayamasfida.github.io/7.caution/' } // 新しいタイミングを設定
 };
 
 /**
